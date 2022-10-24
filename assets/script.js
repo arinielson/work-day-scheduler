@@ -34,6 +34,10 @@ for (var i = 0; i < hours.length; i++) {
     hourlyDiv.append(saveBtn);
 }
 
-function setPresentHour() {
+function presentHour() {  
 
+}
+
+function saveTextInput() {
+    
 }
