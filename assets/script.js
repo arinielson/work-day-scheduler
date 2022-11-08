@@ -5,7 +5,7 @@ $('#currentDay').text(today.format('MMMM Do YYYY, h:mm a'));
 const containerEl = $('.container');
 
 const hours = [
-   // '9AM',
+    '9AM',
     '10AM',
     '11AM',
     '12PM',
@@ -14,7 +14,7 @@ const hours = [
     '3PM',
     '4PM',
     '5PM',
-    '6PM',
+    // '6PM',
     // '7PM',
     // '8PM',
     // '9PM',
@@ -40,7 +40,7 @@ for (var i = 0; i < hours.length; i++) {
     saveTask();    
 }
 
-var inputTags = document.querySelector('input'[i]);
+var inputTags = document.querySelector('input');
 var saveBtnTags = document.querySelector('.saveBtn');
 
 function presentColor() {   
@@ -55,15 +55,25 @@ function presentColor() {
     }
 }
 
+// Not functioning properly
 function saveTask() {
     var savedHourlyTask = localStorage.getItem('task');
     console.log('Item saved?');
-    textInput = savedHourlyTask;
+    textInput.textContent = savedHourlyTask;
 }
 
+// Currently only targeting first row, error with Input value, not saving to localStorage
 saveBtnTags.addEventListener('click', function clickSave(event) {
     event.preventDefault();    
     console.log('Button clicked');
 
-    localStorage.setItem('task', inputTags[i].value);
+    localStorage.setItem('10AM', inputTags[0].value);
+    localStorage.setItem('11AM', inputTags[1].value);
+    localStorage.setItem('12PM', inputTags[2].value);
+    localStorage.setItem('1PM', inputTags[3].value);
+    localStorage.setItem('2PM', inputTags[4].value);
+    localStorage.setItem('3PM', inputTags[5].value);
+    localStorage.setItem('4PM', inputTags[6].value);
+    localStorage.setItem('5PM', inputTags[7].value);
+    localStorage.setItem('6PM', inputTags[8].value);
 });
