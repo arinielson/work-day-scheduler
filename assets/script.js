@@ -5,24 +5,29 @@ $('#currentDay').text(today.format('MMMM Do YYYY, h:mm a'));
 const containerEl = $('.container');
 
 const hours = [
-    // 9,
-    // 10,
-    // 11,
-    // 12,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
+    '9AM',
+    '10AM',
+    '11AM',
+    '12PM',
+    '1PM',
+    '2PM',
+    '3PM',
+    '4PM',
+    '5PM',
+    '6PM'
 ];
 
-// Creates Planner Elements and depicts past, present, or future for textarea input
+var inputArea = $('input').val();
+
+savedInput();
+
+function savedInput() {
+    const savedValue = localStorage.getItem('tasks');
+    console.log(savedValue);
+}
+
+
+// Creates Planner Elements (hour, textarea, and save button)
 function renderBoxes(){
     for (var i = 0; i < hours.length; i++) {
         var hourlyDiv = $('<div>').addClass('row');
@@ -42,19 +47,18 @@ function renderBoxes(){
         presentColor(i);           
     }
 
+// Click function to save tasks
     $('button').on('click', function(event){
-        const id = $(event.target).attr('id');
-        console.log(id);
-        const value = $(event.target).siblings('input').val();
-        console.log(value);
+        // const id = $(event.target).attr('id');        
+        const value = $(event.target).siblings('input').val();                
+
+        localStorage.setItem('tasks', value);
     });
 }
 
+// Changes the input textarea color class depending on current hour
 function presentColor(i) {   
-    let currentHour = moment().format('h');
-    console.log(currentHour);
-    console.log(hours[i]);
-
+    let currentHour = moment().format('hA');
     if (currentHour == hours[i]) {
         $(`input[id=${i}]`).addClass('present');        
     } else if (currentHour < hours[i]) {
