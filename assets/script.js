@@ -5,7 +5,7 @@ $('#currentDay').text(today.format('MMMM Do YYYY, h:mm a'));
 const containerEl = $('.container');
 
 const hours = [
-    '9AM',
+    '9AM',    
     '10AM',
     '11AM',
     '12PM',
